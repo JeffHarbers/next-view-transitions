@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::view-transition-group(card),
+::view-transition-new(card),
+::view-transition-old(card) {
+	animation-duration: 1s;
+}
+
+::view-transition-image-pair(card) {
+    overflow: hidden;
+}
+
+::view-transition-old(card) {
+    opacity: 0;
+}
+
+::view-transition-new(card) {
+    height: 100%;
+    object-fit: cover;
+}
